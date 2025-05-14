@@ -20,6 +20,7 @@ const Inicial = () => {
       </Card>
 
       <Row className="g-4">
+        {/* Card 1 */}
         <Col md={4}>
           <Card className="text-center h-100 shadow-sm">
             <Card.Img
@@ -32,6 +33,42 @@ const Inicial = () => {
               <Card.Title>Vida no Campus</Card.Title>
               <Card.Text>
                 Um ambiente vibrante e acolhedor, com atividades que promovem o desenvolvimento pessoal e social dos alunos.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Card 2 */}
+        <Col md={4}>
+          <Card className="text-center h-100 shadow-sm">
+            <Card.Img
+              variant="top"
+              src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc"
+              alt="Biblioteca"
+              style={{ height: '200px', objectFit: 'cover' }}
+            />
+            <Card.Body>
+              <Card.Title>Biblioteca</Card.Title>
+              <Card.Text>
+                Uma biblioteca com um acervo completo e atualizado, incluindo livros, revistas e recursos digitais para pesquisa e estudo.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Card 3 */}
+        <Col md={4}>
+          <Card className="text-center h-100 shadow-sm">
+            <Card.Img
+              variant="top"
+              src="https://images.unsplash.com/photo-1652974731232-efc86a9bd985"
+              alt="Prédio Principal"
+              style={{ height: '200px', objectFit: 'cover' }}
+            />
+            <Card.Body>
+              <Card.Title>Prédio Principal</Card.Title>
+              <Card.Text>
+                O centro de nossa instituição, com salas de aula modernas e laboratórios equipados para atender às necessidades dos cursos.
               </Card.Text>
             </Card.Body>
           </Card>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Container, Row, Col } from 'react-bootstrap'
+import { Card, Container, Row, Col, CardBody } from 'react-bootstrap'
 
 const Inicial = () => {
   return (
@@ -44,7 +44,7 @@ const Inicial = () => {
             <Card.Img
               variant="top"
               src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc"
-              alt="Biblioteca"
+              alt="Libary"
               style={{ height: '200px', objectFit: 'cover' }}
             />
             <Card.Body>
@@ -62,7 +62,7 @@ const Inicial = () => {
             <Card.Img
               variant="top"
               src="https://images.unsplash.com/photo-1652974731232-efc86a9bd985"
-              alt="Prédio Principal"
+              alt="Main Building"
               style={{ height: '200px', objectFit: 'cover' }}
             />
             <Card.Body>
@@ -74,7 +74,32 @@ const Inicial = () => {
           </Card>
         </Col>
       </Row>
+      {/*Segunda linha com 2 colunas*/}
+      <Row className="g-4 mt-4">
+        {/* Card 1 */}
+        <Col md={6}>
+          <Card className="h-100 shadow-sm">
+            <Card.Body className="text-center">
+              <Card.Title>Parcerias com Empresas</Card.Title>
+              <Card.Text>
+                ...
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        {/* Card 2 */}
 
+        <Col md={6}>
+          <Card className="h-100 shadow-sm">
+            <Card.Body className="text-center">
+              <Card.Title>Compromisso com a Educação</Card.Title>
+              <Card.Text>
+                ...
+              </Card.Text>
+          </Card.Body>
+        </Card>
+        </Col>
+      </Row>
     </Container>
   )
 }

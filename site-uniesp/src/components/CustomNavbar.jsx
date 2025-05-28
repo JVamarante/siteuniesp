@@ -1,10 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
-import { Container, Nav, Navbar, Collapse } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const CustomNavbar = () => {
-
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -18,25 +16,35 @@ const CustomNavbar = () => {
             <img src="/uniesp.jpg" alt="Uniesp Logo" width={60} height={60} className="me-2 rounded" />
           </Navbar.Brand>
 
-          {/* botão hamburguer */}
-          <Navbar.Toggle onClick={handleShow} aria-controls="navbar-menu" />
+          {/* Botão hamburguer padrão */}
+          <Navbar.Toggle aria-controls="navbar-menu" />
 
-          {/* Collapse manual com estado */}
-          <Collapse in={show}>
-            <div id="navbar-menu" className="w-100">
-              <Navbar.Collapse className="justify-content-end">
-                <Nav onClick={handleClose}> {/* Fecha ao clicar em um link */}
-                  <Nav.Link as={Link} to="/a-faculdade" className="px-3">A faculdade</Nav.Link>
-                  <Nav.Link as={Link} to="/dpo-lgpd" className="px-3">DPO LGPD</Nav.Link>
-                  <Nav.Link as={Link} to="/noticias" className="px-3">Notícias</Nav.Link>
-                  <Nav.Link as={Link} to="/admin" className="px-3">Admin</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </div>
-          </Collapse>
-
+          {/* Menu colapsável para telas md+ */}
+          <Navbar.Collapse id="navbar-menu" className="justify-content-end">
+            <Nav>
+              <Nav.Link as={Link} to="/a-faculdade" className="px-3">A Faculdade</Nav.Link>
+              <Nav.Link as={Link} to="/dpo-lgpd" className="px-3">DPO LGPD</Nav.Link>
+              <Nav.Link as={Link} to="/noticias" className="px-3">Notícias</Nav.Link>
+              <Nav.Link as={Link} to="/admin" className="px-3">Admin</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Offcanvas para telas pequenas (mobile) */}
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            <Nav.Link as={Link} to="/a-faculdade" onClick={handleClose}>A Faculdade</Nav.Link>
+            <Nav.Link as={Link} to="/dpo-lgpd" onClick={handleClose}>DPO LGPD</Nav.Link>
+            <Nav.Link as={Link} to="/noticias" onClick={handleClose}>Notícias</Nav.Link>
+            <Nav.Link as={Link} to="/admin" onClick={handleClose}>Admin</Nav.Link>
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   )
 }
